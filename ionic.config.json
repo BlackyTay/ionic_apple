@@ -1,5 +1,7 @@
 {
   "name": "apple",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }

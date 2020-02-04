@@ -1,0 +1,11 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "apple",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {},
+  "server": {
+    "url": "http://localhost:8100"
+  }
+}
