@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { StorageService } from 'src/app/services/storage.service';
 import { AuthConstants } from 'src/app/config/auth-constants';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginPage implements OnInit {
   constructor(
     private router: Router,
     private authService: AuthService,
-    private storageService: StorageService) { }
+    private storageService: StorageService,
+    private toastService: ToastService) { }
 
   ngOnInit() {
   }
@@ -42,15 +44,15 @@ export class LoginPage implements OnInit {
             this.storageService.store(AuthConstants.AUTH, res.userData);
             this.router.navigate(['home/feed']);
           } else {
-            console.log('incorrect password.');
+            this.toastService.presentToast('incorrect password.');
           }
         },
         (error: any) => {
-          console.log('Network Issue.');
+          this.toastService.presentToast('Network Issue.');
         }
       );
     } else {
-      console.log('Please enter email/username or password');
+      this.toastService.presentToast('Please enter email/username or password');
     }
   }
 }
