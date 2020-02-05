@@ -8,12 +8,24 @@ import { WelcomePageRoutingModule } from './welcome-routing.module';
 
 import { WelcomePage } from './welcome.page';
 
+import { RouterModule, Routes } from '@angular/router'
+import { ComponentsModule } from './../../components/components.module';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: WelcomePage
+  }
+];
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    WelcomePageRoutingModule
+    WelcomePageRoutingModule,
+    ComponentsModule,
+    RouterModule.forChild(routes)
   ],
   declarations: [WelcomePage]
 })
